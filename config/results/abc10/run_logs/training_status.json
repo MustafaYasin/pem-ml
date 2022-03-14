@@ -1,0 +1,51 @@
+{
+    "Volleyball": {
+        "checkpoints": [
+            {
+                "steps": 24000,
+                "file_path": "results\\abc10\\Volleyball\\Volleyball-24000.onnx",
+                "reward": null,
+                "creation_time": 1647276099.2788527,
+                "auxillary_file_paths": [
+                    "results\\abc10\\Volleyball\\Volleyball-24000.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24000,
+            "file_path": "results\\abc10\\Volleyball.onnx",
+            "reward": null,
+            "creation_time": 1647276099.2788527,
+            "auxillary_file_paths": [
+                "results\\abc10\\Volleyball\\Volleyball-24000.pt"
+            ]
+        }
+    },
+    "RobotBehavior": {
+        "checkpoints": [
+            {
+                "steps": 24558,
+                "file_path": "results\\abc10\\RobotBehavior\\RobotBehavior-24558.onnx",
+                "reward": 0.0,
+                "creation_time": 1647276099.3908484,
+                "auxillary_file_paths": [
+                    "results\\abc10\\RobotBehavior\\RobotBehavior-24558.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24558,
+            "file_path": "results\\abc10\\RobotBehavior.onnx",
+            "reward": 0.0,
+            "creation_time": 1647276099.3908484,
+            "auxillary_file_paths": [
+                "results\\abc10\\RobotBehavior\\RobotBehavior-24558.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cu113"
+    }
+}

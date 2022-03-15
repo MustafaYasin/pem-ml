@@ -192,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9fa44c2c3f8ce74ca39a3355ea42631, type: 2}
+  - {fileID: 2100000, guid: b0da1813c36914e678ba57f2790424e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -421,7 +421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -701,7 +701,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   pendulumA: {fileID: 1266024450}
   pendulumB: {fileID: 1022887467}
   pendulumC: {fileID: 2040746507}
@@ -1037,7 +1037,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7954672815851726556, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7954672815851726558, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7416857712268663273, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7954672815851726553, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7954672815851726370, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7954672815851726557, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 497495965292054564, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 6327617998853010357, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 8241164390451994639, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 5485176692513050270, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 2219554007297188915, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
+    - {fileID: 7756907178769414777, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fed76ada46450914f86122b2893fe1bd, type: 3}
 --- !u!1 &404184532
 GameObject:
@@ -1206,7 +1218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1418,7 +1430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1714,7 +1726,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2025,7 +2037,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2393,7 +2405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2604,7 +2616,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2816,7 +2828,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3028,7 +3040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3107,7 +3119,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!64 &1352107553
 MeshCollider:
@@ -3143,7 +3155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3376,7 +3388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3476,7 +3488,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   pendulumA: {fileID: 785782258}
   pendulumB: {fileID: 703878149}
   pendulumC: {fileID: 404184532}
@@ -3548,7 +3560,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!64 &1938544863
 MeshCollider:
@@ -3584,7 +3596,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3911,7 +3923,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 829fa97761866a44991bb0d60ec1b820, type: 3}
+  - {fileID: 2100000, guid: d047c894522a005449648dde289287da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

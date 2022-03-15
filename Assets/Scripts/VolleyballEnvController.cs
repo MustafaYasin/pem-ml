@@ -201,6 +201,7 @@ public class VolleyballEnvController : MonoBehaviour
 
         lastHitter = Team.Default; // reset last hitter
 
+        /*
         foreach (var agent in AgentsList)
         {
             // randomise starting positions and rotations
@@ -213,7 +214,7 @@ public class VolleyballEnvController : MonoBehaviour
             agent.transform.eulerAngles = new Vector3(0, randomRot, 0);
 
             agent.GetComponent<Rigidbody>().velocity = default(Vector3);
-        }
+        }*/
 
         // reset ball to starting conditions
         ResetBall();

@@ -30,7 +30,7 @@ public class VolleyballEnvController : MonoBehaviour
     public RobotAgent blueAgent;
     public RobotAgent purpleAgent;
 
-    public List<VolleyballAgent> AgentsList = new List<VolleyballAgent>();
+    public List<RobotAgent> AgentsList = new List<RobotAgent>();
     List<Renderer> RenderersList = new List<Renderer>();
 
     Rigidbody blueAgentRb;
@@ -96,7 +96,7 @@ public class VolleyballEnvController : MonoBehaviour
                 if (lastHitter == Team.Blue)
                 {
                     // apply penalty to blue agent
-                    // blueAgent.AddReward(-0.1f);
+                    //blueAgent.AddReward(-0.1f);
                     // purpleAgent.AddReward(0.1f);
                 }
                 else if (lastHitter == Team.Purple)
@@ -113,6 +113,10 @@ public class VolleyballEnvController : MonoBehaviour
                 break;
 
             case Event.HitBlueGoal:
+                if (lastHitter == Team.Purple)
+                {
+                    purpleAgent.AddReward(1);
+                }
                 // blue wins
                 // blueAgent.AddReward(1f);
                 // purpleAgent.AddReward(-1f);
@@ -200,20 +204,6 @@ public class VolleyballEnvController : MonoBehaviour
         resetTimer = 0;
 
         lastHitter = Team.Default; // reset last hitter
-
-        foreach (var agent in AgentsList)
-        {
-            // randomise starting positions and rotations
-            var randomPosX = Random.Range(-2f, 2f);
-            var randomPosZ = Random.Range(-2f, 2f);
-            var randomPosY = Random.Range(0.5f, 3.75f); // depends on jump height
-            var randomRot = Random.Range(-45f, 45f);
-
-            agent.transform.localPosition = new Vector3(randomPosX, randomPosY, randomPosZ);
-            agent.transform.eulerAngles = new Vector3(0, randomRot, 0);
-
-            agent.GetComponent<Rigidbody>().velocity = default(Vector3);
-        }
 
         // reset ball to starting conditions
         ResetBall();

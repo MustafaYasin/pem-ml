@@ -4,9 +4,21 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Policies;
 
 public class RobotAgent : Agent
 {
+    public GameObject area;
+    BehaviorParameters behaviorParameters;
+    public Team teamId;
+
+    // To get ball's location for observations
+    public GameObject ball;
+    Rigidbody ballRb;
+    public int agentRot;
+
+    VolleyballSettings volleyballSettings;
+    VolleyballEnvController envController;
 
     public GameObject pendulumA;
     public GameObject pendulumB;
@@ -22,12 +34,23 @@ public class RobotAgent : Agent
     Rigidbody m_RbE;
     Rigidbody m_RbF;
 
-    public GameObject ball;
-    Rigidbody ballRb;
+    public GameObject bat;
+    Rigidbody batRb;
+    
+    public Collider[] hitGroundColliders = new Collider[3];
+    EnvironmentParameters resetParams;
+
+    void Start()
+    {
+        envController = area.GetComponent<VolleyballEnvController>();
+    }
 
 
     public override void Initialize()
     {
+        volleyballSettings = FindObjectOfType<VolleyballSettings>();
+        behaviorParameters = gameObject.GetComponent<BehaviorParameters>();
+
         m_RbA = pendulumA.GetComponent<Rigidbody>();
         m_RbB = pendulumB.GetComponent<Rigidbody>();
         m_RbC = pendulumC.GetComponent<Rigidbody>();
@@ -36,8 +59,27 @@ public class RobotAgent : Agent
         m_RbF = pendulumF.GetComponent<Rigidbody>();
 
         ballRb = ball.GetComponent<Rigidbody>();
-    }
+        batRb =bat.GetComponent<Rigidbody>();
 
+        if (teamId == Team.Blue)
+        {
+            agentRot = -1;
+        }
+        else
+        {
+            agentRot = 1;
+        }
+
+        resetParams = Academy.Instance.EnvironmentParameters;
+    }
+    
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.CompareTag("ball"))
+        {
+            envController.UpdateLastHitter(teamId);
+        }
+    }
     public override void OnEpisodeBegin()
     {
         pendulumA.transform.position = new Vector3(0f, 0.55f, 0f) + transform.position;
@@ -69,6 +111,10 @@ public class RobotAgent : Agent
         pendulumF.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         m_RbF.velocity = Vector3.zero;
         m_RbF.angularVelocity = Vector3.zero;
+
+        bat.transform.position = new Vector3(-0.0009999871f, 0f, 0.501f)+ transform.position;
+        batRb.velocity = Vector3.zero;
+        
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -104,7 +150,22 @@ public class RobotAgent : Agent
         sensor.AddObservation(m_RbF.velocity);
 
         sensor.AddObservation(ballRb.transform.position);
-        sensor.AddObservation(ballRb.velocity);
+        // Ball velocity (3 floats)
+        sensor.AddObservation(ballRb.velocity.y);
+        sensor.AddObservation(ballRb.velocity.z*agentRot);
+        sensor.AddObservation(ballRb.velocity.x*agentRot);
+
+        sensor.AddObservation(batRb.transform.position);
+        sensor.AddObservation(batRb.velocity);
+                // Vector from agent to ball (direction to ball) (3 floats)
+        Vector3 toBall = new Vector3((ballRb.transform.position.x - bat.transform.position.x)*agentRot, 
+        (ballRb.transform.position.y - bat.transform.position.y),
+        (ballRb.transform.position.z - bat.transform.position.z)*agentRot);
+
+        sensor.AddObservation(toBall.normalized);
+        // Distance from the ball (1 float)
+        sensor.AddObservation(toBall.magnitude);
+
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -128,11 +189,7 @@ public class RobotAgent : Agent
         m_RbF.AddTorque(new Vector3(0f, torque, 0f));
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()

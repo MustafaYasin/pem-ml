@@ -100,7 +100,7 @@ public class VolleyballEnvController : MonoBehaviour
                     purpleAgent.AddReward(0.1f);
 
 
-                    purpleAgent.AddReward(0.4f);
+
                 }
                 else if (lastHitter == Team.Purple)
                 {
@@ -146,14 +146,14 @@ public class VolleyballEnvController : MonoBehaviour
             case Event.HitIntoBlueArea:
                 if (lastHitter == Team.Purple)
                 {
-                    purpleAgent.AddReward(1);
+                    purpleAgent.AddReward(1f);
                 }
                 break;
 
             case Event.HitIntoPurpleArea:
                 if (lastHitter == Team.Blue)
                 {
-                    blueAgent.AddReward(1);
+                    blueAgent.AddReward(1f);
                 }
                 break;
         }

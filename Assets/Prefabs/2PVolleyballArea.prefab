@@ -656,7 +656,7 @@ MonoBehaviour:
   blueAgent: {fileID: 0}
   purpleAgent: {fileID: 0}
   AgentsList:
-  - {fileID: 7954672815851726370}
+  - {fileID: 0}
   - {fileID: 2219554007297188915}
   ball: {fileID: 1317026924745720295}
   blueGoal: {fileID: 1254629476493177227}
@@ -673,9 +673,7 @@ GameObject:
   - component: {fileID: 7954672815851726559}
   - component: {fileID: 7954672815851726556}
   - component: {fileID: 7954672815851726557}
-  - component: {fileID: 7954672815851726370}
   - component: {fileID: 7954672815851726553}
-  - component: {fileID: 7954672815851726558}
   - component: {fileID: 7416857712268663273}
   m_Layer: 0
   m_Name: BlueAgent
@@ -745,29 +743,6 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
---- !u!114 &7954672815851726370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954672815851726371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d7e1c6bf7648745949dd2f0385f0e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  area: {fileID: 7954672815519958404}
-  teamId: 0
-  ball: {fileID: 1317026924745720295}
-  hitGroundColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!65 &7954672815851726553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -781,20 +756,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7954672815851726558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7954672815851726371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
 --- !u!135 &7416857712268663273
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -15,6 +15,9 @@ public class VolleyballAgent : Agent
     public GameObject ball;
     Rigidbody ballRb;
 
+   // public GameObject bat;
+   // Color batColor;
+
     VolleyballSettings volleyballSettings;
     VolleyballEnvController envController;
 
@@ -30,6 +33,7 @@ public class VolleyballAgent : Agent
     void Start()
     {
         envController = area.GetComponent<VolleyballEnvController>();
+       // batColor = bat.GetComponent<Renderer>().material.color;
     }
 
     public override void Initialize()
@@ -246,4 +250,23 @@ public class VolleyballAgent : Agent
         }
         discreteActionsOut[3] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject == ball)
+    //    {
+    //        bat.GetComponent<Renderer>().material.color = Color.red;
+    //        Debug.Log("hit ball");
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if(other.gameObject == ball)
+    //    {
+    //        bat.gameObject.GetComponent<Renderer>().material.color = batColor;
+    //    }
+    //}
+
+    
 }

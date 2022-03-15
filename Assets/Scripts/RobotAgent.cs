@@ -60,15 +60,15 @@ public class RobotAgent : Agent
         m_RbD.velocity = Vector3.zero;
         m_RbD.angularVelocity = Vector3.zero;
 
-        pendulumE.transform.position = new Vector3(-0.15f, 2f, 0f) + transform.position;
-        pendulumE.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-        m_RbE.velocity = Vector3.zero;
-        m_RbE.angularVelocity = Vector3.zero;
+        //pendulumE.transform.position = new Vector3(-0.15f, 2f, 0f) + transform.position;
+        //pendulumE.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        //m_RbE.velocity = Vector3.zero;
+        //m_RbE.angularVelocity = Vector3.zero;
 
-        pendulumF.transform.position = new Vector3(0.15f, 2.11f, 0f) + transform.position;
-        pendulumF.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-        m_RbF.velocity = Vector3.zero;
-        m_RbF.angularVelocity = Vector3.zero;
+        //pendulumF.transform.position = new Vector3(0.15f, 2.11f, 0f) + transform.position;
+        //pendulumF.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        //m_RbF.velocity = Vector3.zero;
+        //m_RbF.angularVelocity = Vector3.zero;
     }
 
     public override void CollectObservations(VectorSensor sensor)

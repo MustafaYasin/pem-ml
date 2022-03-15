@@ -230,7 +230,7 @@ public class VolleyballEnvController : MonoBehaviour
     {
         var randomPosX = Random.Range(-2f, 2f);
         var randomPosZ = Random.Range(6f, 10f);
-        var randomPosY = Random.Range(6f, 8f);
+        var randomPosY = Random.Range(16f, 18f);
 
         // alternate ball spawn side
         // -1 = spawn blue side, 1 = spawn purple side

@@ -186,6 +186,8 @@ public class RobotAgent : Agent
     {
         if (other.gameObject.CompareTag("ball"))
         {
+            Debug.Log("teamId");
+            Debug.Log(teamId);
             envController.UpdateLastHitter(teamId);
         }
     }

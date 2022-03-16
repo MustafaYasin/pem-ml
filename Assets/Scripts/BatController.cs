@@ -23,7 +23,7 @@ public class BatController : MonoBehaviour
            
             //batHit.gameObject.SetActive(true);
             Debug.Log("hit ball");
-            transform.parent.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
+            transform.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
         }
     }
 

@@ -25,6 +25,13 @@ public class RobotAgent : Agent
     public GameObject ball;
     Rigidbody ballRb;
 
+    VolleyballEnvController envController;
+    public Team teamId;
+
+    public GameObject area;
+
+    float agentRot;
+
 
     public override void Initialize()
     {
@@ -36,6 +43,17 @@ public class RobotAgent : Agent
         //m_RbF = pendulumF.GetComponent<Rigidbody>();
 
         ballRb = ball.GetComponent<Rigidbody>();
+
+        if (teamId == Team.Blue)
+        {
+            agentRot = -1;
+        }
+        else
+        {
+            agentRot = 1;
+        }
+
+        //resetParams = Academy.Instance.EnvironmentParameters;
     }
 
     public override void OnEpisodeBegin()
@@ -131,13 +149,21 @@ public class RobotAgent : Agent
     // Start is called before the first frame update
     void Start()
     {
-        
+        envController = area.GetComponent<VolleyballEnvController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.CompareTag("ball"))
+        {
+            envController.UpdateLastHitter(teamId);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -155,4 +181,22 @@ public class RobotAgent : Agent
             this.AddReward(0.3f);
         }
     }
+
+    public void OnChildTriggerEntered(Collider other)
+    {
+        if (other.gameObject.CompareTag("ball"))
+        {
+            envController.UpdateLastHitter(teamId);
+        }
+    }
+
+    //private void OnTriggerEnter(Collider other)
+//{
+//    if(other.gameObject == ball)
+//    {
+//        bat.GetComponent<Renderer>().material.color = Color.red;
+//        Debug.Log("hit ball");
+//    }
+//}
 }
+

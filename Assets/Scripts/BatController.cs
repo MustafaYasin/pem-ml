@@ -30,8 +30,7 @@ public class BatController : MonoBehaviour
     {
         if (other.gameObject == ball)
         {
-            gameObject.GetComponent<Renderer>().material.color = batColor;
-            batHit.gameObject.SetActive(false);
+            transform.parent.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
         }
     }
 }

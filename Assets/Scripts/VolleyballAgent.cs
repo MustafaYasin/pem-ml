@@ -251,22 +251,21 @@ public class VolleyballAgent : Agent
         discreteActionsOut[3] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject == ball)
-    //    {
-    //        bat.GetComponent<Renderer>().material.color = Color.red;
-    //        Debug.Log("hit ball");
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == ball)
+        {
+            transform.parent.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
+        }
+    }
 
     //private void OnTriggerExit(Collider other)
     //{
-    //    if(other.gameObject == ball)
+    //    if (other.gameObject == ball)
     //    {
     //        bat.gameObject.GetComponent<Renderer>().material.color = batColor;
     //    }
     //}
 
-    
+
 }

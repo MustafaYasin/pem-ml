@@ -15,23 +15,40 @@ public class BatController : MonoBehaviour
         batHit.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == ball)
+        if(other.gameObject == ball)
         {
-            // GetComponent<Renderer>().material.color = Color.red;
-           
-            batHit.gameObject.SetActive(true);
             Debug.Log("hit ball");
+            transform.parent.parent.parent.parent.gameObject.GetComponent<VolleyballAgent>().OnChildTriggerEntered(other);
+
         }
+        //if (other.gameObject == ball)
+        //{
+        //    // GetComponent<Renderer>().material.color = Color.red;
+
+        //    batHit.gameObject.SetActive(true);
+        //    Debug.Log("hit ball");
+        //}
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == ball)
-        {
-            gameObject.GetComponent<Renderer>().material.color = batColor;
-            batHit.gameObject.SetActive(false);
-        }
-    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject == ball)
+    //    {
+    //        // GetComponent<Renderer>().material.color = Color.red;
+
+    //        batHit.gameObject.SetActive(true);
+    //        Debug.Log("hit ball");
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject == ball)
+    //    {
+    //        gameObject.GetComponent<Renderer>().material.color = batColor;
+    //        batHit.gameObject.SetActive(false);
+    //    }
+    //}
 }

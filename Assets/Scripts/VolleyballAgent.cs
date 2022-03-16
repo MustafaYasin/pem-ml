@@ -10,6 +10,7 @@ public class VolleyballAgent : Agent
     Rigidbody agentRb;
     BehaviorParameters behaviorParameters;
     public Team teamId;
+    public GameObject racket;
 
     // To get ball's location for observations
     public GameObject ball;
@@ -109,11 +110,24 @@ public class VolleyballAgent : Agent
     /// </summary>
     void OnCollisionEnter(Collision c)
     {
+       
         if (c.gameObject.CompareTag("ball"))
         {
+            Debug.Log("OnCoiision with ball is called");
             envController.UpdateLastHitter(teamId);
         }
     }
+
+   public void OnChildTriggerEntered(Collider other)
+    {
+        if (other.gameObject.CompareTag("ball"))
+        {
+            Debug.Log("OnCoiision with ball is called");
+            envController.UpdateLastHitter(teamId);
+        }
+    }
+
+
 
     /// <summary>
     /// Starts the jump sequence

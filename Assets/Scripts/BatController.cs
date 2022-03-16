@@ -21,16 +21,17 @@ public class BatController : MonoBehaviour
         {
             // GetComponent<Renderer>().material.color = Color.red;
            
-            batHit.gameObject.SetActive(true);
+            //batHit.gameObject.SetActive(true);
             Debug.Log("hit ball");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == ball)
-        {
             transform.parent.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject == ball)
+    //    {
+    //        transform.parent.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildTriggerEntered(other);
+    //    }
+    //}
 }

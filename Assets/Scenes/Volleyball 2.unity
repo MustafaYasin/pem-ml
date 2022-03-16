@@ -3006,6 +3006,10 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 765772280}
+    - target: {fileID: 205446657, guid: 4e6d4d1d2cdf35c4e920cf6fca50647d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 68901377104565924, guid: 4e6d4d1d2cdf35c4e920cf6fca50647d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3066,7 +3070,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tennis_racket
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 205446651, guid: 4e6d4d1d2cdf35c4e920cf6fca50647d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e6d4d1d2cdf35c4e920cf6fca50647d, type: 3}
 --- !u!1 &1157056782
 GameObject:

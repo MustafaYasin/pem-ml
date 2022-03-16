@@ -139,4 +139,20 @@ public class RobotAgent : Agent
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == ball)
+        {
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == ball)
+        {
+            this.AddReward(0.3f);
+        }
+    }
 }

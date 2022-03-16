@@ -90,11 +90,13 @@ public class VolleyballEnvController : MonoBehaviour
     /// </summary>
     public void ResolveEvent(Event triggerEvent)
     {
+
         switch (triggerEvent)
         {
             case Event.HitOutOfBounds:
                 if (lastHitter == Team.Blue)
                 {
+                    //Debug.Log("blue hit out of bounds");
                     // apply penalty to blue agent
                     blueAgent.AddReward(-0.1f);
                     purpleAgent.AddReward(0.1f);
@@ -104,6 +106,7 @@ public class VolleyballEnvController : MonoBehaviour
                 }
                 else if (lastHitter == Team.Purple)
                 {
+                    //Debug.Log("purple hit out of bounds");
                     // apply penalty to purple agent
                     purpleAgent.AddReward(-0.1f);
                     blueAgent.AddReward(0.1f);
@@ -117,6 +120,7 @@ public class VolleyballEnvController : MonoBehaviour
 
             case Event.HitBlueGoal:
                 // blue wins
+                //Debug.Log("blue wins");
                 blueAgent.AddReward(1f);
                 purpleAgent.AddReward(-1f);
 
@@ -131,6 +135,7 @@ public class VolleyballEnvController : MonoBehaviour
 
             case Event.HitPurpleGoal:
                 // purple wins
+                //Debug.Log("purple wins");
                 purpleAgent.AddReward(1f);
                 blueAgent.AddReward(-1f);
 

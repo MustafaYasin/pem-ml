@@ -47,6 +47,7 @@ public class VolleyballEnvController : MonoBehaviour
     Renderer purpleGoalRenderer;
 
     Team lastHitter;
+    Team penultHitter;
 
     private int resetTimer;
     public int MaxEnvironmentSteps;
@@ -80,6 +81,7 @@ public class VolleyballEnvController : MonoBehaviour
     /// </summary>
     public void UpdateLastHitter(Team team)
     {
+        penultHitter=lastHitter;
         lastHitter = team;
     }
 
@@ -113,52 +115,78 @@ public class VolleyballEnvController : MonoBehaviour
                 break;
 
             case Event.HitBlueGoal:
-                if (lastHitter == Team.Purple)
+                if (lastHitter == Team.Purple) //purple verliert ball, der ball fällt auf den Boden 
                 {
-                    purpleAgent.AddReward(1);
+                    purpleAgent.AddReward(-2);
                 }
-                // blue wins
-                // blueAgent.AddReward(1f);
-                // purpleAgent.AddReward(-1f);
-
-                // turn floor blue
-                StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
-
-                // end episode
+                if(lastHitter== Team.Blue){ //blue win
+                    purpleAgent.AddReward(-1);
+                    StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
+                }
                 blueAgent.EndEpisode();
                 purpleAgent.EndEpisode();
-                ResetScene();
-                break;
+                ResetScene(); 
+                break;  
+                // end episode
+                
 
             case Event.HitPurpleGoal:
-                // purple wins
-                // purpleAgent.AddReward(1f);
-                // blueAgent.AddReward(-1f);
-
-                // turn floor purple
-                StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.purpleGoalMaterial, RenderersList, .5f));
-
-                // end episode
+                 if (lastHitter == Team.Blue)//blue verliert den ball, der ball fällt auf den Boden
+                {
+                    blueAgent.AddReward(-2);
+                }
+                if(lastHitter == Team.Purple) //purple win
+                { 
+                    blueAgent.AddReward(-1);
+                    StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.purpleGoalMaterial, RenderersList, .5f));
+                    
+                }
                 blueAgent.EndEpisode();
                 purpleAgent.EndEpisode();
                 ResetScene();
                 break;
+                
+
 
             case Event.HitIntoBlueArea:
                 if (lastHitter == Team.Purple)
                 {
-                    purpleAgent.AddReward(1);
+                    //purpleAgent.AddReward(3);
+                    purpleAgent.AddReward(2);
                 }
                 break;
 
             case Event.HitIntoPurpleArea:
                 if (lastHitter == Team.Blue)
                 {
-                    blueAgent.AddReward(1);
+                   // blueAgent.AddReward(3);
+                    blueAgent.AddReward(2);
                 }
                 break;
         }
     }
+
+    public void ResolveCollisionEnter(){
+        
+        
+        if (lastHitter == Team.Blue && penultHitter==Team.Purple)
+        {
+            blueAgent.AddReward(4);
+            purpleAgent.AddReward(1);
+        }else if (lastHitter == Team.Blue){
+            blueAgent.AddReward(1);
+        }else if (lastHitter == Team.Purple && penultHitter == Team.Blue){
+
+            purpleAgent.AddReward(4);
+            blueAgent.AddReward(1);
+        }else if (lastHitter == Team.Purple){
+            purpleAgent.AddReward(1);
+        }
+        
+    }       
+
+    
+
 
     /// <summary>
     /// Changes the color of the ground for a moment.

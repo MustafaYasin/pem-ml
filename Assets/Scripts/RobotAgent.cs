@@ -60,7 +60,8 @@ public class RobotAgent : Agent
 
         ballRb = ball.GetComponent<Rigidbody>();
         batRb =bat.GetComponent<Rigidbody>();
-
+        
+    
         if (teamId == Team.Blue)
         {
             agentRot = -1;
@@ -69,7 +70,6 @@ public class RobotAgent : Agent
         {
             agentRot = 1;
         }
-
         resetParams = Academy.Instance.EnvironmentParameters;
     }
     
@@ -77,7 +77,9 @@ public class RobotAgent : Agent
     {
         if (c.gameObject.CompareTag("ball"))
         {
+            Debug.Log("OnCollisionEnter passiert");
             envController.UpdateLastHitter(teamId);
+            envController.ResolveCollisionEnter();
         }
     }
     public override void OnEpisodeBegin()
@@ -157,7 +159,7 @@ public class RobotAgent : Agent
 
         sensor.AddObservation(batRb.transform.position);
         sensor.AddObservation(batRb.velocity);
-                // Vector from agent to ball (direction to ball) (3 floats)
+                // Vector from bat to ball (direction to ball) (3 floats)
         Vector3 toBall = new Vector3((ballRb.transform.position.x - bat.transform.position.x)*agentRot, 
         (ballRb.transform.position.y - bat.transform.position.y),
         (ballRb.transform.position.z - bat.transform.position.z)*agentRot);

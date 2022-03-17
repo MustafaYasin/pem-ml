@@ -187,7 +187,7 @@ public class VolleyballEnvController : MonoBehaviour
         }
         else if (lastHitter == Team.Blue)
         {
-            blueAgent.AddReward(1);
+            blueAgent.AddReward(2);
             Debug.Log("blue bat touches the ball");
         }
         else if (lastHitter == Team.Purple && penultHitter == Team.Blue)
@@ -199,7 +199,7 @@ public class VolleyballEnvController : MonoBehaviour
         }
         else if (lastHitter == Team.Purple)
         {
-            purpleAgent.AddReward(1);
+            purpleAgent.AddReward(2);
             Debug.Log("purple bat touches the ball");
         }
 

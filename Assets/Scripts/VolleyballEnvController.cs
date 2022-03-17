@@ -115,6 +115,7 @@ public class VolleyballEnvController : MonoBehaviour
                 break;
 
             case Event.HitBlueGoal:
+                Debug.Log(lastHitter);
                 if (lastHitter == Team.Purple) //purple hit the ball into it's own side 
                 {   Debug.Log("purple hits the ball into blueGoal");
                     purpleAgent.AddReward(-2);

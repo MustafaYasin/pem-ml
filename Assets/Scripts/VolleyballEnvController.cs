@@ -47,6 +47,7 @@ public class VolleyballEnvController : MonoBehaviour
     Renderer purpleGoalRenderer;
 
     Team lastHitter;
+    Team penultHitter;
 
     private int resetTimer;
     public int MaxEnvironmentSteps;
@@ -97,16 +98,14 @@ public class VolleyballEnvController : MonoBehaviour
                 if (lastHitter == Team.Blue)
                 {
                     // apply penalty to blue agent
-                    blueAgent.AddReward(-0.1f); 
-                   // blueAgent.AddReward(-0.2f); 
-                    purpleAgent.AddReward(0.1f);
+                    blueAgent.AddReward(-0.2f); 
+                    purpleAgent.AddReward(0.2f);
                 }
                 else if (lastHitter == Team.Purple)
                 {
                     // apply penalty to purple agent
-                    purpleAgent.AddReward(-0.1f);
-                    //purpleAgent.AddReward(-0.2f); 
-                    blueAgent.AddReward(0.1f);
+                    purpleAgent.AddReward(-0.2f);
+                    blueAgent.AddReward(0.2f);
                 }
 
                 // end episode
@@ -117,8 +116,8 @@ public class VolleyballEnvController : MonoBehaviour
 
             case Event.HitBlueGoal:
                 // blue wins
-                blueAgent.AddReward(1f);
-                purpleAgent.AddReward(-1f);
+                blueAgent.AddReward(2f);
+                purpleAgent.AddReward(-2f);
                 // turn floor blue
                 StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
 
@@ -130,8 +129,8 @@ public class VolleyballEnvController : MonoBehaviour
 
             case Event.HitPurpleGoal:
                 // purple wins
-                purpleAgent.AddReward(1f);
-                blueAgent.AddReward(-1f);
+                purpleAgent.AddReward(2f);
+                blueAgent.AddReward(-2f);
 
                 // turn floor purple
                 StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.purpleGoalMaterial, RenderersList, .5f));
@@ -156,6 +155,36 @@ public class VolleyballEnvController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void ResolveCollisionEnter()
+    {
+
+
+        if (lastHitter == Team.Blue && penultHitter == Team.Purple)
+        {
+            blueAgent.AddReward(4);
+            purpleAgent.AddReward(1);
+            Debug.Log("blue catches the ball from purple");
+        }
+        else if (lastHitter == Team.Blue)
+        {
+            blueAgent.AddReward(1);
+            Debug.Log("blue bat touches the ball");
+        }
+        else if (lastHitter == Team.Purple && penultHitter == Team.Blue)
+        {
+
+            purpleAgent.AddReward(4);
+            blueAgent.AddReward(1);
+            Debug.Log("purple catches the ball from Blue");
+        }
+        else if (lastHitter == Team.Purple)
+        {
+            purpleAgent.AddReward(1);
+            Debug.Log("purple bat touches the ball");
+        }
+
     }
 
     /// <summary>

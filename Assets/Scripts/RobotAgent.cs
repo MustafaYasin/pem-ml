@@ -25,15 +25,15 @@ public class RobotAgent : Agent
     public GameObject pendulumB;
     public GameObject pendulumC;
     public GameObject pendulumD;
-    public GameObject pendulumE;
-    public GameObject pendulumF;
+   // public GameObject pendulumE;
+   // public GameObject pendulumF;
 
     Rigidbody m_RbA;
     Rigidbody m_RbB;
     Rigidbody m_RbC;
     Rigidbody m_RbD;
-    Rigidbody m_RbE;
-    Rigidbody m_RbF;
+   // Rigidbody m_RbE;
+  // Rigidbody m_RbF;
 
     //public GameObject bat;
     //Rigidbody batRb;
@@ -54,8 +54,8 @@ public class RobotAgent : Agent
         m_RbB = pendulumB.GetComponent<Rigidbody>();
         m_RbC = pendulumC.GetComponent<Rigidbody>();
         m_RbD = pendulumD.GetComponent<Rigidbody>();
-        m_RbE = pendulumE.GetComponent<Rigidbody>();
-        m_RbF = pendulumF.GetComponent<Rigidbody>();
+       // m_RbE = pendulumE.GetComponent<Rigidbody>();
+      //  m_RbF = pendulumF.GetComponent<Rigidbody>();
 
         ballRb = ball.GetComponent<Rigidbody>();
       //  batRb = bat.GetComponent<Rigidbody>();
@@ -117,15 +117,15 @@ public class RobotAgent : Agent
         m_RbD.angularVelocity = Vector3.zero;
 
 
-        pendulumE.transform.position = new Vector3(-0.15f, 2f, 0f) + transform.position;
-        pendulumE.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-        m_RbE.velocity = Vector3.zero;
-        m_RbE.angularVelocity = Vector3.zero;
+       // pendulumE.transform.position = new Vector3(-0.15f, 2f, 0f) + transform.position;
+       // pendulumE.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+       // m_RbE.velocity = Vector3.zero;
+      //  m_RbE.angularVelocity = Vector3.zero;
 
-        pendulumF.transform.position = new Vector3(0.15f, 2.11f, 0f) + transform.position;
-        pendulumF.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-        m_RbF.velocity = Vector3.zero;
-        m_RbF.angularVelocity = Vector3.zero;
+      //  pendulumF.transform.position = new Vector3(0.15f, 2.11f, 0f) + transform.position;
+      //  pendulumF.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+     //   m_RbF.velocity = Vector3.zero;
+     //   m_RbF.angularVelocity = Vector3.zero;
 
        // bat.transform.position = new Vector3(-0.0009999871f, 0f, 0.501f) + transform.position;
        // batRb.velocity = Vector3.zero;
@@ -154,15 +154,15 @@ public class RobotAgent : Agent
         sensor.AddObservation(m_RbD.angularVelocity);
         sensor.AddObservation(m_RbD.velocity);
 
-        sensor.AddObservation(pendulumE.transform.localPosition);
-        sensor.AddObservation(pendulumE.transform.rotation);
-        sensor.AddObservation(m_RbE.angularVelocity);
-        sensor.AddObservation(m_RbE.velocity);
+        //sensor.AddObservation(pendulumE.transform.localPosition);
+        //sensor.AddObservation(pendulumE.transform.rotation);
+        //sensor.AddObservation(m_RbE.angularVelocity);
+        //sensor.AddObservation(m_RbE.velocity);
 
-        sensor.AddObservation(pendulumF.transform.localPosition);
-        sensor.AddObservation(pendulumF.transform.rotation);
-        sensor.AddObservation(m_RbF.angularVelocity);
-        sensor.AddObservation(m_RbF.velocity);
+        //sensor.AddObservation(pendulumF.transform.localPosition);
+        //sensor.AddObservation(pendulumF.transform.rotation);
+        //sensor.AddObservation(m_RbF.angularVelocity);
+        //sensor.AddObservation(m_RbF.velocity);
 
         sensor.AddObservation(ballRb.transform.position);
         sensor.AddObservation(ballRb.velocity);
@@ -194,11 +194,11 @@ public class RobotAgent : Agent
         torque = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f) * 150f;
         m_RbD.AddTorque(new Vector3(0f, torque, 0f));
 
-        torque = Mathf.Clamp(actions.ContinuousActions[4], -1f, 1f) * 150f;
-        m_RbE.AddTorque(new Vector3(0f, 0f, torque));
+        //torque = Mathf.Clamp(actions.ContinuousActions[4], -1f, 1f) * 150f;
+        //m_RbE.AddTorque(new Vector3(0f, 0f, torque));
 
-        torque = Mathf.Clamp(actions.ContinuousActions[5], -1f, 1f) * 150f;
-        m_RbF.AddTorque(new Vector3(0f, torque, 0f));
+        //torque = Mathf.Clamp(actions.ContinuousActions[5], -1f, 1f) * 150f;
+        //m_RbF.AddTorque(new Vector3(0f, torque, 0f));
     }
 
 }

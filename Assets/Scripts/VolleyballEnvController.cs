@@ -115,9 +115,13 @@ public class VolleyballEnvController : MonoBehaviour
                 break;
 
             case Event.HitBlueGoal:
-                
+                Debug.Log(lastHitter);
+                if (lastHitter == Team.Purple) //purple hit the ball into it's own side 
+                {   Debug.Log("purple hits the ball into blueGoal");
+                    purpleAgent.AddReward(-2);
+                }
                 if(lastHitter== Team.Blue){ //purple didn't catch the ball from blue
-                    blueAgent.AddReward(3);
+                    purpleAgent.AddReward(-1);
                     Debug.Log("purple didn't catch the ball from blue");
                     
                 }
@@ -130,10 +134,14 @@ public class VolleyballEnvController : MonoBehaviour
                 
 
             case Event.HitPurpleGoal:
-                
+                 if (lastHitter == Team.Blue)//blue hit the ball into it's own side 
+                {
+                    blueAgent.AddReward(-2);
+                    Debug.Log("blue hits the ball into it's own side");
+                }
                 if(lastHitter == Team.Purple) //purple win
                 { 
-                    purpleAgent.AddReward(3);
+                    blueAgent.AddReward(-1);
                     Debug.Log("blue didn't catch the ball from purple");
                       
                 }
@@ -149,7 +157,7 @@ public class VolleyballEnvController : MonoBehaviour
                 if (lastHitter == Team.Purple)
                 {
                     //purpleAgent.AddReward(3);
-                    purpleAgent.AddReward(1);
+                    purpleAgent.AddReward(4);
                     Debug.Log("purple hits ball into bluearea");
                 }
                 break;
@@ -158,7 +166,7 @@ public class VolleyballEnvController : MonoBehaviour
                 if (lastHitter == Team.Blue)
                 {
                    // blueAgent.AddReward(3);
-                    blueAgent.AddReward(1);
+                    blueAgent.AddReward(4);
                     Debug.Log("Blue hits ball into bluearea");
                 }
                 break;

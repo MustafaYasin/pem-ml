@@ -84,7 +84,7 @@ public class RobotAgent : Agent
         {
             Debug.Log("OnCollisionEnter passiert");
             envController.UpdateLastHitter(teamId);
-            envController.ResolveCollisionEnter();
+            //envController.ResolveCollisionEnter();
         }
     }
     public override void OnEpisodeBegin()

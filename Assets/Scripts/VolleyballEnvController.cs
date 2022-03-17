@@ -118,13 +118,13 @@ public class VolleyballEnvController : MonoBehaviour
                 Debug.Log(lastHitter);
                 if (lastHitter == Team.Purple) //purple hit the ball into it's own side 
                 {
-                    Debug.Log("purple hits the ball into blueGoal");
+                    //Debug.Log("purple hits the ball into blueGoal");
                     purpleAgent.AddReward(-2);
                 }
                 if (lastHitter == Team.Blue)
                 { //purple didn't catch the ball from blue
                     purpleAgent.AddReward(-1);
-                    Debug.Log("purple didn't catch the ball from blue");
+                   // Debug.Log("purple didn't catch the ball from blue");
 
                 }
                 StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
@@ -139,12 +139,12 @@ public class VolleyballEnvController : MonoBehaviour
                 if (lastHitter == Team.Blue)//blue hit the ball into it's own side 
                 {
                     blueAgent.AddReward(-2);
-                    Debug.Log("blue hits the ball into it's own side");
+                  //  Debug.Log("blue hits the ball into it's own side");
                 }
                 if (lastHitter == Team.Purple) //purple win
                 {
                     blueAgent.AddReward(-1);
-                    Debug.Log("blue didn't catch the ball from purple");
+                   // Debug.Log("blue didn't catch the ball from purple");
 
                 }
                 StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.purpleGoalMaterial, RenderersList, .5f));
@@ -160,7 +160,7 @@ public class VolleyballEnvController : MonoBehaviour
                 {
                     //purpleAgent.AddReward(3);
                     purpleAgent.AddReward(2);
-                    Debug.Log("purple hits ball into bluearea");
+                   // Debug.Log("purple hits ball into bluearea");
                 }
                 break;
 
@@ -169,7 +169,7 @@ public class VolleyballEnvController : MonoBehaviour
                 {
                     // blueAgent.AddReward(3);
                     blueAgent.AddReward(2);
-                    Debug.Log("Blue hits ball into bluearea");
+                   // Debug.Log("Blue hits ball into bluearea");
                 }
                 break;
         }
@@ -183,24 +183,24 @@ public class VolleyballEnvController : MonoBehaviour
         {
             blueAgent.AddReward(4);
             purpleAgent.AddReward(1);
-            Debug.Log("blue catches the ball from purple");
+           // Debug.Log("blue catches the ball from purple");
         }
         else if (lastHitter == Team.Blue)
         {
             blueAgent.AddReward(2);
-            Debug.Log("blue bat touches the ball");
+           // Debug.Log("blue bat touches the ball");
         }
         else if (lastHitter == Team.Purple && penultHitter == Team.Blue)
         {
 
             purpleAgent.AddReward(4);
             blueAgent.AddReward(1);
-            Debug.Log("purple catches the ball from Blue");
+           // Debug.Log("purple catches the ball from Blue");
         }
         else if (lastHitter == Team.Purple)
         {
             purpleAgent.AddReward(2);
-            Debug.Log("purple bat touches the ball");
+           // Debug.Log("purple bat touches the ball");
         }
 
     }

@@ -74,17 +74,21 @@ public class RobotAgent : Agent
 
     void OnCollisionEnter(Collision c)
     {
+
         if (c.gameObject.CompareTag("ball"))
         {
+            // Debug.Log("OnCoiision with ball is called");
             envController.UpdateLastHitter(teamId);
         }
     }
 
-    public void OnChildTriggerEntered(Collider other)
+
+    public void OnChildCollisionEnter(Collision c)
     {
-        if (other.gameObject.CompareTag("ball"))
+
+        if (c.gameObject.CompareTag("ball"))
         {
-            Debug.Log("OnCoiision with ball is called");
+            Debug.Log(teamId + ":  [Robot Agent] OnChildCoiision with ball is called\n ===============================");
             envController.UpdateLastHitter(teamId);
         }
     }

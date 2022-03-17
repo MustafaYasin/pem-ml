@@ -10,14 +10,15 @@ public class VolleyballAgent : Agent
     Rigidbody agentRb;
     BehaviorParameters behaviorParameters;
     public Team teamId;
+
+    // 
     public GameObject racket;
+    // public GameObject bat;
+    // Color batColor;
 
     // To get ball's location for observations
     public GameObject ball;
     Rigidbody ballRb;
-
-   // public GameObject bat;
-   // Color batColor;
 
     VolleyballSettings volleyballSettings;
     VolleyballEnvController envController;
@@ -29,6 +30,8 @@ public class VolleyballAgent : Agent
     float agentRot;
 
     public Collider[] hitGroundColliders = new Collider[3];
+
+    //
     EnvironmentParameters resetParams;
 
     void Start()
@@ -55,6 +58,7 @@ public class VolleyballAgent : Agent
             agentRot = 1;
         }
 
+        // TODO: why is the resetParams here? 
         resetParams = Academy.Instance.EnvironmentParameters;
     }
 
@@ -113,19 +117,30 @@ public class VolleyballAgent : Agent
        
         if (c.gameObject.CompareTag("ball"))
         {
-            Debug.Log("OnCoiision with ball is called");
+           // Debug.Log("OnCoiision with ball is called");
             envController.UpdateLastHitter(teamId);
         }
     }
 
-   public void OnChildTriggerEntered(Collider other)
-    {
-        if (other.gameObject.CompareTag("ball"))
-        {
-            Debug.Log("OnCoiision with ball is called");
-            envController.UpdateLastHitter(teamId);
-        }
-    }
+
+    //public void OnChildCollisionEnter(Collision c)
+    //{
+
+    //    if (c.gameObject.CompareTag("ball"))
+    //    {
+    //        Debug.Log(teamId + ":  OnChildCoiision with ball is called\n ===============================");
+    //        envController.UpdateLastHitter(teamId);
+    //    }
+    //}
+
+    //public void OnChildTriggerEntered(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("ball"))
+    //    {
+    //        Debug.Log("OnCoiision with ball is called");
+    //        envController.UpdateLastHitter(teamId);
+    //    }
+    //}
 
 
 
@@ -264,23 +279,4 @@ public class VolleyballAgent : Agent
         }
         discreteActionsOut[3] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject == ball)
-    //    {
-    //        bat.GetComponent<Renderer>().material.color = Color.red;
-    //        Debug.Log("hit ball");
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if(other.gameObject == ball)
-    //    {
-    //        bat.gameObject.GetComponent<Renderer>().material.color = batColor;
-    //    }
-    //}
-
-    
 }

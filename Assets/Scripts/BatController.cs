@@ -15,40 +15,23 @@ public class BatController : MonoBehaviour
         batHit.gameObject.SetActive(false);
     }
 
-    public void OnTriggerEnter(Collider other)
+
+    public void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject == ball)
+        if (collision.gameObject == ball)
         {
-            Debug.Log("hit ball");
-            transform.parent.parent.parent.parent.gameObject.GetComponent<VolleyballAgent>().OnChildTriggerEntered(other);
-
+            Debug.Log("================================\n         Hit Ball");
+            //transform.parent.parent.parent.parent.gameObject.GetComponent<VolleyballAgent>().OnChildCollisionEnter(collision);
+            transform.parent.parent.parent.gameObject.GetComponent<RobotAgent>().OnChildCollisionEnter(collision);
+            batHit.gameObject.SetActive(true);
         }
-        //if (other.gameObject == ball)
-        //{
-        //    // GetComponent<Renderer>().material.color = Color.red;
-
-        //    batHit.gameObject.SetActive(true);
-        //    Debug.Log("hit ball");
-        //}
     }
 
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject == ball)
-    //    {
-    //        // GetComponent<Renderer>().material.color = Color.red;
-
-    //        batHit.gameObject.SetActive(true);
-    //        Debug.Log("hit ball");
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject == ball)
-    //    {
-    //        gameObject.GetComponent<Renderer>().material.color = batColor;
-    //        batHit.gameObject.SetActive(false);
-    //    }
-    //}
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == ball)
+        {
+            batHit.gameObject.SetActive(false);
+        }
+    }
 }

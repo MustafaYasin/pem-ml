@@ -26,29 +26,31 @@ public class VolleyballController : MonoBehaviour
         {
             // ball went out of bounds
             envController.ResolveEvent(Event.HitOutOfBounds);
+           Debug.Log("Ball went out of bounds: Event.HitOutOfBounds is called");
         }
         else if (other.gameObject.CompareTag("blueBoundary"))
         {
             // ball hit into blue side
             envController.ResolveEvent(Event.HitIntoBlueArea);
+           Debug.Log("Ball hit into blue side: Event.HitIntoBlueArea is called");
         }
         else if (other.gameObject.CompareTag("purpleBoundary"))
         {
             // ball hit into purple side
             envController.ResolveEvent(Event.HitIntoPurpleArea);
+            Debug.Log("Ball  hit into purple side: Event.HitIntoPurpleArea is called");
         }
         else if (other.gameObject.CompareTag("purpleGoal"))
         {
             // ball hit purple goal (blue side court)
             envController.ResolveEvent(Event.HitPurpleGoal);
+            Debug.Log("Ball hit purple goal (blue side court): Event.HitPurpleGoal is called");
         }
         else if (other.gameObject.CompareTag("blueGoal"))
         {
             // ball hit blue goal (purple side court)
             envController.ResolveEvent(Event.HitBlueGoal);
+            Debug.Log("Ball hit blue goal (purple side court): Event.HitBlueGoal is called");
         }
-
     }
-
-
 }

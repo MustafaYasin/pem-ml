@@ -90,6 +90,7 @@ public class RobotAgent : Agent
         {
             Debug.Log("Team ID: " + teamId + ":  [Robot Agent] OnChildCoiision with ball is called\n ===============================");
             envController.UpdateLastHitter(teamId);
+            envController.ResolveCollisionEnter();
         }
     }
 

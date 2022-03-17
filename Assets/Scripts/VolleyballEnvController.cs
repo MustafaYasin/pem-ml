@@ -30,7 +30,7 @@ public class VolleyballEnvController : MonoBehaviour
     public RobotAgent blueAgent;
     public RobotAgent purpleAgent;
 
-    public List<VolleyballAgent> AgentsList = new List<VolleyballAgent>();
+    public List<RobotAgent> AgentsList = new List<RobotAgent>();
     List<Renderer> RenderersList = new List<Renderer>();
 
     Rigidbody blueAgentRb;
@@ -81,6 +81,7 @@ public class VolleyballEnvController : MonoBehaviour
     /// </summary>
     public void UpdateLastHitter(Team team)
     {
+        penultHitter = lastHitter;
         lastHitter = team;
     }
 
@@ -91,21 +92,20 @@ public class VolleyballEnvController : MonoBehaviour
     /// </summary>
     public void ResolveEvent(Event triggerEvent)
     {
-       // Debug.Log("event is called");
         switch (triggerEvent)
         {
             case Event.HitOutOfBounds:
                 if (lastHitter == Team.Blue)
                 {
                     // apply penalty to blue agent
-                    blueAgent.AddReward(-0.2f); 
-                    purpleAgent.AddReward(0.2f);
+                    //blueAgent.AddReward(-0.1f);
+                    // purpleAgent.AddReward(0.1f);
                 }
                 else if (lastHitter == Team.Purple)
                 {
                     // apply penalty to purple agent
-                    purpleAgent.AddReward(-0.2f);
-                    blueAgent.AddReward(0.2f);
+                    // purpleAgent.AddReward(-0.1f);
+                    // blueAgent.AddReward(0.1f);
                 }
 
                 // end episode
@@ -115,43 +115,61 @@ public class VolleyballEnvController : MonoBehaviour
                 break;
 
             case Event.HitBlueGoal:
-                // blue wins
-                blueAgent.AddReward(2f);
-                purpleAgent.AddReward(-2f);
-                // turn floor blue
-                StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
+                Debug.Log(lastHitter);
+                if (lastHitter == Team.Purple) //purple hit the ball into it's own side 
+                {
+                    Debug.Log("purple hits the ball into blueGoal");
+                    purpleAgent.AddReward(-2);
+                }
+                if (lastHitter == Team.Blue)
+                { //purple didn't catch the ball from blue
+                    purpleAgent.AddReward(-1);
+                    Debug.Log("purple didn't catch the ball from blue");
 
-                // end episode
+                }
+                StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.blueGoalMaterial, RenderersList, .5f));
                 blueAgent.EndEpisode();
                 purpleAgent.EndEpisode();
                 ResetScene();
                 break;
+            // end episode
+
 
             case Event.HitPurpleGoal:
-                // purple wins
-                purpleAgent.AddReward(2f);
-                blueAgent.AddReward(-2f);
+                if (lastHitter == Team.Blue)//blue hit the ball into it's own side 
+                {
+                    blueAgent.AddReward(-2);
+                    Debug.Log("blue hits the ball into it's own side");
+                }
+                if (lastHitter == Team.Purple) //purple win
+                {
+                    blueAgent.AddReward(-1);
+                    Debug.Log("blue didn't catch the ball from purple");
 
-                // turn floor purple
+                }
                 StartCoroutine(GoalScoredSwapGroundMaterial(volleyballSettings.purpleGoalMaterial, RenderersList, .5f));
-
-                // end episode
                 blueAgent.EndEpisode();
                 purpleAgent.EndEpisode();
                 ResetScene();
                 break;
+
+
 
             case Event.HitIntoBlueArea:
                 if (lastHitter == Team.Purple)
                 {
-                   purpleAgent.AddReward(1f);
+                    //purpleAgent.AddReward(3);
+                    purpleAgent.AddReward(2);
+                    Debug.Log("purple hits ball into bluearea");
                 }
                 break;
 
             case Event.HitIntoPurpleArea:
                 if (lastHitter == Team.Blue)
                 {
-                    blueAgent.AddReward(1f);
+                    // blueAgent.AddReward(3);
+                    blueAgent.AddReward(2);
+                    Debug.Log("Blue hits ball into bluearea");
                 }
                 break;
         }
@@ -186,6 +204,9 @@ public class VolleyballEnvController : MonoBehaviour
         }
 
     }
+
+
+
 
     /// <summary>
     /// Changes the color of the ground for a moment.
@@ -231,21 +252,6 @@ public class VolleyballEnvController : MonoBehaviour
         resetTimer = 0;
 
         lastHitter = Team.Default; // reset last hitter
-
-        /*
-        foreach (var agent in AgentsList)
-        {
-            // randomise starting positions and rotations
-            var randomPosX = Random.Range(-2f, 2f);
-            var randomPosZ = Random.Range(-2f, 2f);
-            var randomPosY = Random.Range(0.5f, 3.75f); // depends on jump height
-            var randomRot = Random.Range(-45f, 45f);
-
-            agent.transform.localPosition = new Vector3(randomPosX, randomPosY, randomPosZ);
-            agent.transform.eulerAngles = new Vector3(0, randomRot, 0);
-
-            agent.GetComponent<Rigidbody>().velocity = default(Vector3);
-        }*/
 
         // reset ball to starting conditions
         ResetBall();

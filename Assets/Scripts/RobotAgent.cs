@@ -88,7 +88,7 @@ public class RobotAgent : Agent
 
         if (c.gameObject.CompareTag("ball"))
         {
-            Debug.Log(teamId + ":  [Robot Agent] OnChildCoiision with ball is called\n ===============================");
+            Debug.Log("Team ID: " + teamId + ":  [Robot Agent] OnChildCoiision with ball is called\n ===============================");
             envController.UpdateLastHitter(teamId);
         }
     }

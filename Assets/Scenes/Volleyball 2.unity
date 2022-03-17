@@ -1373,6 +1373,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8366012060837477978, guid: c24cd511bb2a1f94abeda82f7cc98fc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17661845b39fa1a478d7a40a71c99408, type: 2}
     - target: {fileID: 8366012061027543108, guid: c24cd511bb2a1f94abeda82f7cc98fc7, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1495,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_InferenceDevice
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8366012060837477978, guid: c24cd511bb2a1f94abeda82f7cc98fc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17661845b39fa1a478d7a40a71c99408, type: 2}
     - target: {fileID: 8366012061027543108, guid: c24cd511bb2a1f94abeda82f7cc98fc7, type: 3}
       propertyPath: m_RootOrder
       value: 6

@@ -3430,9 +3430,9 @@ GameObject:
   - component: {fileID: 5686306482425190061}
   - component: {fileID: 5686306482425190033}
   - component: {fileID: 5686306482425190032}
-  - component: {fileID: 5686306482425190035}
   - component: {fileID: 5686306482425190034}
   - component: {fileID: 5686306482425190060}
+  - component: {fileID: 253900531165546374}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -3503,20 +3503,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5686306482425190035
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5686306482425190063}
-  m_Material: {fileID: 13400000, guid: 54ed79b9254e1456587c8cf3849f6dc1, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &5686306482425190034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3542,10 +3528,23 @@ BoxCollider:
   m_GameObject: {fileID: 5686306482425190063}
   m_Material: {fileID: 13400000, guid: 54ed79b9254e1456587c8cf3849f6dc1, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000008, y: 2.000001, z: 1.0000005}
   m_Center: {x: 0.00000005960469, y: 0.0000076293945, z: 0.00000014901158}
+--- !u!114 &253900531165546374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686306482425190063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66520e76e86fa7d40a20ed50a6d3cf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotAgent: {fileID: 5686306482416399405}
 --- !u!1 &5686306482496820661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4930,6 +4929,7 @@ GameObject:
   - component: {fileID: 5686306483010163194}
   - component: {fileID: 5686306483010163189}
   - component: {fileID: 6075207035600448585}
+  - component: {fileID: 2448360445302684468}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -5043,6 +5043,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000008, y: 2.000001, z: 1.0000005}
   m_Center: {x: 0.000000059604915, y: -0.000015258789, z: 0.00000014901158}
+--- !u!114 &2448360445302684468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686306483010163190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66520e76e86fa7d40a20ed50a6d3cf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotAgent: {fileID: 5686306481504915522}
 --- !u!1 &5686306483044515857
 GameObject:
   m_ObjectHideFlags: 0

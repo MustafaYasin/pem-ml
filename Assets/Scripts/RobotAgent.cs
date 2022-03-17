@@ -73,6 +73,11 @@ public class RobotAgent : Agent
         resetParams = Academy.Instance.EnvironmentParameters;
     }
     
+    public void HandleCollisionEnter(Collision c)
+    {
+        OnCollisionEnter(c);
+    }
+
     void OnCollisionEnter(Collision c)
     {
         if (c.gameObject.CompareTag("ball"))

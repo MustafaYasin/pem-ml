@@ -4,7 +4,7 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 
-public class VolleyballAgent : Agent
+public class TennisballAgent : Agent
 {
     public GameObject area;
     Rigidbody agentRb;
@@ -20,8 +20,8 @@ public class VolleyballAgent : Agent
     public GameObject ball;
     Rigidbody ballRb;
 
-    VolleyballSettings volleyballSettings;
-    VolleyballEnvController envController;
+    TennisballSettings volleyballSettings;
+    TennisballEnvController envController;
 
     // Controls jump behavior
     float jumpingTime;
@@ -36,13 +36,13 @@ public class VolleyballAgent : Agent
 
     void Start()
     {
-        envController = area.GetComponent<VolleyballEnvController>();
+        envController = area.GetComponent<TennisballEnvController>();
        // batColor = bat.GetComponent<Renderer>().material.color;
     }
 
     public override void Initialize()
     {
-        volleyballSettings = FindObjectOfType<VolleyballSettings>();
+        volleyballSettings = FindObjectOfType<TennisballSettings>();
         behaviorParameters = gameObject.GetComponent<BehaviorParameters>();
 
         agentRb = GetComponent<Rigidbody>();

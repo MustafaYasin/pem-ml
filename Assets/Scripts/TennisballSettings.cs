@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VolleyballSettings : MonoBehaviour
+public class TennisballSettings : MonoBehaviour
 {
     public float agentRunSpeed = 1.5f;
     public float agentJumpHeight = 2.75f;

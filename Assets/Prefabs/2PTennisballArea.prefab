@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4969053079637478864}
   - component: {fileID: 1420097855520037586}
   m_Layer: 0
-  m_Name: Volleyball
+  m_Name: Tennisball
   m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6450,7 +6450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8366012059458142631}
   m_Layer: 0
-  m_Name: VolleyballNet
+  m_Name: TennisballNet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6828,7 +6828,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36dc31c319681407abc2da4ddfe78a8a, type: 2}
+  - {fileID: 2100000, guid: 17661845b39fa1a478d7a40a71c99408, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6874,7 +6874,7 @@ GameObject:
   - component: {fileID: 8366012061027543108}
   - component: {fileID: 8366012061027543109}
   m_Layer: 0
-  m_Name: 2PVolleyballArea2
+  m_Name: 2PTennisballArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

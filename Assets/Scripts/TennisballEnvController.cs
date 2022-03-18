@@ -18,11 +18,11 @@ public enum Event
     HitIntoPurpleArea = 4
 }
 
-public class VolleyballEnvController : MonoBehaviour
+public class TennisballEnvController : MonoBehaviour
 {
     int ballSpawnSide;
 
-    VolleyballSettings volleyballSettings;
+    TennisballSettings volleyballSettings;
 
     //public VolleyballAgent blueAgent;
     //public VolleyballAgent purpleAgent;
@@ -71,7 +71,7 @@ public class VolleyballEnvController : MonoBehaviour
         RenderersList.Add(blueGoalRenderer);
         RenderersList.Add(purpleGoalRenderer);
 
-        volleyballSettings = FindObjectOfType<VolleyballSettings>();
+        volleyballSettings = FindObjectOfType<TennisballSettings>();
 
         ResetScene();
     }

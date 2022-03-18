@@ -18,8 +18,8 @@ public class RobotAgent : Agent
     public int agentRot;
     public GameObject racket;
 
-    VolleyballSettings volleyballSettings;
-    VolleyballEnvController envController;
+    TennisballSettings volleyballSettings;
+    TennisballEnvController envController;
 
     public GameObject pendulumA;
     public GameObject pendulumB;
@@ -42,12 +42,12 @@ public class RobotAgent : Agent
     EnvironmentParameters resetParams;
     void Start()
     {
-        envController = area.GetComponent<VolleyballEnvController>();
+        envController = area.GetComponent<TennisballEnvController>();
     }
 
     public override void Initialize()
     {
-        volleyballSettings = FindObjectOfType<VolleyballSettings>();
+        volleyballSettings = FindObjectOfType<TennisballSettings>();
         behaviorParameters = gameObject.GetComponent<BehaviorParameters>();
 
         m_RbA = pendulumA.GetComponent<Rigidbody>();

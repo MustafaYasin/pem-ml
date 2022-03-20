@@ -1,0 +1,29 @@
+{
+    "RobotBehavior": {
+        "checkpoints": [
+            {
+                "steps": 37934,
+                "file_path": "results\\abc8\\RobotBehavior\\RobotBehavior-37934.onnx",
+                "reward": 0.0,
+                "creation_time": 1647275814.1975818,
+                "auxillary_file_paths": [
+                    "results\\abc8\\RobotBehavior\\RobotBehavior-37934.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 37934,
+            "file_path": "results\\abc8\\RobotBehavior.onnx",
+            "reward": 0.0,
+            "creation_time": 1647275814.1975818,
+            "auxillary_file_paths": [
+                "results\\abc8\\RobotBehavior\\RobotBehavior-37934.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cu113"
+    }
+}

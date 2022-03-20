@@ -13,5 +13,5 @@ RoboVolley is a multi-agent game implemented with ML-Agent in Unity. In this pro
 
 ## Screenshots
 
-![App Screenshot](https://github.com/MustafaYasin/pem-ml/tree/main/image/Robovolley)
+![App Screenshot](https://github.com/MustafaYasin/pem-ml/tree/main/image/Robovolley.png)
 

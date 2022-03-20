@@ -9,6 +9,12 @@
 # Training environments
 /envs
 
+# Training logs
+Logs
+
+# Library
+Library
+
 # Environemnt logfile
 *Project.log
 
